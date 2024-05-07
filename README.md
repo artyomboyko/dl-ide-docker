@@ -6,12 +6,13 @@
 
 > Примечание: Указываем имя пользователя и тег, чтобы не задавать его отдельно с помощью команды `docker tag notebook artyomboyko/dl-ide` после сборки.
 
-## Публикачия образа в Registry
+## Публикация образа в Registry
 
 Осуществляется командой `docker push`
 
 ## Запуск образа
-Осуществляется командой `docker run --rm -p 8888:8888 -v C:\Users\ArtyomBoyko\Desktop\First_Docker_image\.jupyter:/home/developer/.jupyter -v C:\Users\ArtyomBoyko\Desktop\First_Docker_image\data:/home/developer/data -it notebook`
+Осуществляется командой `docker run --rm -p 9999:8888 --gpus all -v C:\Users\ArtyomBoyko\Documents\Workspace\dl-ide-docker\.jupyter:/home/developer/.jupyter -v C:\Users\ArtyomBoyko\Documents\Workspace\dl-ide-docker\data:/home/developer/data -it artyomboyko/dl-ide`
 
-## 
+# TODO
+- [ ] https://stackoverflow.com/questions/77731122/cudf-and-numba-version-conflict
 
