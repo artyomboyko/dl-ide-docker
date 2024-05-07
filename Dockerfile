@@ -1,5 +1,6 @@
 # Определим базовый образ
-FROM python:3.10
+#FROM python:3.10
+FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
 
 # Создадим рабочее пространство для IDE
 #RUN mkdir -v /workspace

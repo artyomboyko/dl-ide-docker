@@ -23,5 +23,6 @@ docker run --rm -p 9999:8888 --gpus all -v C:\Users\ArtyomBoyko\Documents\Worksp
 ```
 
 # TODO
-- [ ] https://stackoverflow.com/questions/77731122/cudf-and-numba-version-conflict
+- [X] https://stackoverflow.com/questions/77731122/cudf-and-numba-version-conflict
+- [ ]  pip: not found
 
