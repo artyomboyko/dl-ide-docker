@@ -1,15 +1,16 @@
 # Определим базовый образ
-#FROM python:3.10
-FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
+FROM nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
 
-# Создадим рабочее пространство для IDE
-#RUN mkdir -v /workspace
+# Обновим ОС и установим Python & Pip
+USER root
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y python3 python3-pip nano mc htop iotop
+
+
+# Установим необоходимые пакеты Python
 COPY requirements.txt /tmp
 
-# Установим Rapids используя репозиторий pip Nvidia
-RUN pip install --no-cache-dir --extra-index-url=https://pypi.nvidia.com cudf-cu12==24.4.* dask-cudf-cu12==24.4.* cuml-cu12==24.4.*
-
-# Установим необходимые пакеты с зависимостями из файла requirements.txt 
+# Установим необходимые пакеты с зависимостями Nvidia Pip 
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Создадим пользователя для запуска JyputerLab

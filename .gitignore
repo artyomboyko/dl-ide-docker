@@ -1,3 +1,4 @@
 # Исключаем локальные папки с настройками JupyterLab и данными
+.ipynb_checkpoints
 .jupyter/
 data/
