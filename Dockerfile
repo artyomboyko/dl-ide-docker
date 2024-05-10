@@ -17,8 +17,13 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 RUN useradd -m -s /bin/bash developer
 USER developer
 
-# Поменяем рабочую директорию
-WORKDIR /home/developer
+# Создадим рабочую директорию
+RUN mkdir /home/developer/project/
+WORKDIR /home/developer/project/
+
+# Переопределяем место хранения кеша библиотек Transformer, Datasets
+ENV TRANSFORMERS_CACHE='/home/developer/project/data/cache/Transformer'
+ENV HF_DATASETS_CACHE='/home/developer/project/data/cache/Datasets'
 
 # Публикуем порт JupyterLab
 EXPOSE 8888
